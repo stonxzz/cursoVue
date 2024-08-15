@@ -1,14 +1,20 @@
 <script setup>
 const name = 'Vue dinamico'
-const styleColor = "color:blue"
-const arrayColores = ['blue', 'red', 'peru']
-const activo=true;
+// const styleColor = "color:blue"
+// const arrayColores = ['blue', 'red', 'peru']
+// const activo=true;
+const arrayFrutas = ["🍎", "🍌", "🍉", "🍓", "🍒"];
 </script>
 
 <template>
   <h1>Hola {{name.toUpperCase()}}</h1>
-  <h2>{{ arrayColores }}</h2>
-  <!-- //: estos dos puntos es la abreviacion del vbind -->
+  <ul>
+    <li v-for="(fruta, index) in arrayFrutas":key="index">
+      {{index}}  {{ fruta }}
+    </li>
+  </ul>
+  <!-- <h2>{{ arrayColores }}</h2> -->
+  <!-- //: estos dos puntos es la abreviacion del vbind
   <h2 :style="`color: ${arrayColores[2]}`">`Soy peru</h2>
   <h2 v-if="activo ===  true">
     <span>Icono</span>
@@ -17,7 +23,8 @@ const activo=true;
   <p v-else-if="activo === false">Estoy inactivo</p>
   <p v-else>Estoy indeciso</p>
 
-  <h2 v-show="activo">Estoy activo v-show</h2>
+  <h2 v-show="activo">Estoy activo v-show</h2> -->
+
 </template>
 
 <style>
