@@ -1,25 +1,23 @@
 <script setup>
+import{ref} from 'vue'
 
-const name = 'Vue dinamico'
+const nombre = 'vue dinamico'
 
-//Metodo - methods
-const handleClick = (message)=>{
-  console.log(message)
+let counter= ref(0)
+const increment = ()=>{
+  counter.value++
 }
-
 </script>
 
 <template>
-  <h1>Hola {{name.toUpperCase()}}</h1>
-  <button v-on:click.right.prevent="handleClick('Texto right')">Activame Right</button>
-  <button @click="handleClick('texto left')">Activame left</button>
-  <button @click.middle="handleClick('texto middle')">Activame middle</button>
-
+<h1>Hola {{ nombre.toUpperCase() }}</h1>
+<h2>{{ counter }}</h2>
+<button @click="increment">Aumentar</button>
 
 </template>
 
 <style>
   h1{
-    color: red
+    color: red;
   }
 </style>
