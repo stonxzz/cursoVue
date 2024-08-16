@@ -1,5 +1,5 @@
 <script setup>
-import{cloneVNode, ref} from 'vue'
+import{ref, computed} from 'vue'
 
 const nombre = 'vue dinamico'
 
@@ -16,6 +16,16 @@ const reset = ()=>{
   counter.value = 0
 }
 
+const classCounter = computed(()=>{
+  if(counter.value ===0){
+    return 'zero'
+  }else if (counter.value > 0){
+    return 'positive'
+  }else{
+    return 'negative'
+  }
+})
+
 // const changeCounterColor =()=>{
 //   let styleColor = ref('')
 //   if(counter.value>0){
@@ -31,7 +41,7 @@ const reset = ()=>{
 
 <template>
 <h1>Hola {{ nombre.toUpperCase() }}</h1>
-<h2 :class="counter >0 ? 'positive' : 'negative'">{{ counter }}</h2>
+<h2 :class="classCounter">{{ counter }}</h2>
 <button @click="increment">Aumentar</button>
 <button @click="decrement">Decrementar</button>
 <button @click="reset">Reset</button>
@@ -49,5 +59,9 @@ const reset = ()=>{
 
   .negative{
     color: red;
+  }
+
+  .zero{
+    color: peru;
   }
 </style>
