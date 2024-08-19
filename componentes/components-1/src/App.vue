@@ -8,11 +8,8 @@ import BlogPost from "./components/BlogPost.vue";
   <ButtonCounter />
   <ButtonCounter />
 
-  <BlogPost title="Post 1"
-  content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero iste voluptas ut ad 
-  pariatur at vitae voluptates, 
-  labore consectetur vel similique totam illum vero alias. Magnam expedita amet ipsa. Obcaecati."></BlogPost>
-  <BlogPost title="Post 2"></BlogPost>
-  <BlogPost title="Post 3"></BlogPost>
-  <BlogPost title="Post 4"></BlogPost>
+  <BlogPost title="Post 1" :id="1" body="descripcion 1"></BlogPost>
+  <BlogPost title="Post 2" :id="2" body="descripcion 2"></BlogPost>
+  <BlogPost title="Post 3" :id="3" body="descripcion 3"></BlogPost>
+  <BlogPost title="Post 4" :id="4"></BlogPost>
 </template>
