@@ -7,11 +7,24 @@ import BlogPost from "./components/BlogPost.vue";
 
 
 const posts = ref([]);
+const postXpage = 10
+const inicio = ref(0)
+const fin = ref(postXpage)
 
 const favorito = ref("");
 const cambiarFavorito = (title) => {
   favorito.value = title;
 };
+
+const next = ()=>{
+  inicio.value += postXpage
+  fin.value += postXpage
+}
+
+const previus = ()=>{
+  inicio.value += -postXpage
+  fin.value += -postXpage
+}
 
 fetch("https://jsonplaceholder.typicode.com/posts")
 .then((res) => res.json())
@@ -29,10 +42,14 @@ fetch("https://jsonplaceholder.typicode.com/posts")
       <h2>{{ favorito }}</h2>
     </h2>
 
-    <PaginatePost class="mb-2"/>
+  
+
+    <PaginatePost class="mb-2"
+    @next="next"
+    @previus="previus"/>
 
     <BlogPost
-      v-for="post in posts.slice(0, 10)"
+      v-for="post in posts.slice(inicio, fin)"
       :key="post.id"
       :title="post.title"
       :id="post.id"

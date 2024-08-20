@@ -1,8 +1,10 @@
-<script setup></script>
+<script setup>
+const emit = defineEmits(['next', 'previus'])
+</script>
 
 <template>
   <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-outline-primary">Previus</button>
-    <button type="button" class="btn btn-outline-primary">Next</button>
+    <button @click="emit('previus')" type="button" class="btn btn-outline-primary">Previus</button>
+    <button @click="emit('next')" type="button" class="btn btn-outline-primary">Next</button>
   </div>
 </template>
