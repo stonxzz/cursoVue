@@ -19,7 +19,10 @@ const cambiarFavorito = (title)=>{
 <template>
   <div class="container">
     <h1>APP</h1>
-    <h2>Mi post favorito: {{ favorito }}</h2>
+    <h2>Mi post favorito:
+      <span v-if="!favorito"><h2>No hay un post favorito</h2></span>
+      <span  v-else></span><h2>{{ favorito }}</h2>
+    </h2>
     
     <BlogPost
       v-for="post in posts"
@@ -27,7 +30,7 @@ const cambiarFavorito = (title)=>{
       :title="post.title"
       :id="post.id"
       :body="post.body"
-      @cambiarFavorito="cambiarFavorito"
+      @cambiarFavoritoNombre="cambiarFavorito"
     ></BlogPost>
   </div>
 </template>
