@@ -1,7 +1,10 @@
 <script setup>
+import { ref } from "vue";
+
 import ButtonCounter from "./components/ButtonCounter.vue";
+import PaginatePost from "./components/PaginatePost.vue";
 import BlogPost from "./components/BlogPost.vue";
-import { ref, registerRuntimeCompiler } from "vue";
+
 
 const posts = ref([]);
 
@@ -26,13 +29,16 @@ fetch("https://jsonplaceholder.typicode.com/posts")
       <h2>{{ favorito }}</h2>
     </h2>
 
+    <PaginatePost class="mb-2"/>
+
     <BlogPost
-      v-for="post in posts"
+      v-for="post in posts.slice(0, 10)"
       :key="post.id"
       :title="post.title"
       :id="post.id"
       :body="post.body"
       @cambiarFavoritoNombre="cambiarFavorito"
+      class="mb-2"
     ></BlogPost>
   </div>
 </template>
