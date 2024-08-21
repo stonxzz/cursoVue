@@ -1,5 +1,3 @@
-
-
 <template>
   <div class="d-flex flex-column align-items-center justify-content-center mt-5">
     <div class="spinner-border" role="status">
@@ -7,5 +5,4 @@
     </div>
     <p class="text-center mt-3">Loading...</p>
   </div>
-  
 </template>
