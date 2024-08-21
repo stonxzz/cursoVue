@@ -1,21 +1,25 @@
 <script setup>
-    import axios from 'axios';
-    import { ref } from 'vue';
+import axios from "axios";
+import { ref } from "vue";
 
-    const pokemons = ref([])
+import pokemonsList from "@/components/pokemonsList.vue";
 
-    const getData = async()=>{
-        try {
-            const {data} = await axios.get('https://pokeapi.co/api/v2/pokemon')
-            console.log(data.results)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+const pokemons = ref([]);
 
-    getData()
+const getData = async () => {
+  try {
+    const { data } = await axios.get("https://pokeapi.co/api/v2/pokemon");
+    pokemons.value = await data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+getData();
 </script>
 
 <template>
-    <h1>Pokemons</h1>
+  <h1>Pokemons</h1>
+
+  <pokemonsList v-for="element in pokemons" :key="element" :name="element.name" />
 </template>
