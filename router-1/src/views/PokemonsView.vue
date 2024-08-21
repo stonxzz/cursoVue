@@ -21,5 +21,7 @@ getData();
 <template>
   <h1>Pokemons</h1>
 
-  <pokemonsList v-for="element in pokemons" :key="element" :name="element.name" />
+  <pokemonsList v-for="element in pokemons" 
+  :key="element" 
+  :name="element.name"/>
 </template>
