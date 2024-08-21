@@ -1,14 +1,8 @@
-# components-1
+#Ejemplo de curso vue3
 
-This template should help get you started developing with Vue 3 in Vite.
+- [Preview page](https://stonxz-apiconsume-posts.netlify.app)
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Este es un ejemplod del curso trabajando con componentes y composition api
 
 ## Project Setup
 
