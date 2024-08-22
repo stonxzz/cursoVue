@@ -11,13 +11,11 @@ defineProps({
 
 <template>
   <div class="card mt-4">
-    <div class="card-body mt-2">
-      <ul>
-        <li>
+      <ul class="list-group">
+        <li class="list-group-item">
             <router-link :to="`/pokemons/${name}`">{{ name }}</router-link>
         </li>
       </ul>
-    </div>
   </div>
 </template>
 
