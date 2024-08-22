@@ -1,19 +1,35 @@
 <script setup>
+import { ref } from "vue";
+import axios from "axios";
+import { useRoute, useRouter } from "vue-router";
 
-    import axios from 'axios';
+const poke = ref({});
+const route = useRoute();
+const router = useRouter();
 
-    const getData = async()=>{
-        try {
-            const {data} = await axios.get(`https://pokeapi.co/api/v2/pokemon/pikachu`)
-            console.log(data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+const back = () => {
+  router.push("/pokemons");
+};
 
-    getData()
+const getData = async () => {
+  try {
+    const { data } = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon/${route.params.pokename}`
+    );
+    poke.value = data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+getData();
 </script>
 
 <template>
-    <h1>Poke name: {{ $route.params.pokename }}</h1>
+  <figure>
+    <img :src="poke.sprites.front_default" alt="" />
+  </figure>
+
+  <h1>Poke name: {{ $route.params.pokename }}</h1>
+  <button @click="back">Volver</button>
 </template>
