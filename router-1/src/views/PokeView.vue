@@ -27,7 +27,7 @@ getData();
 
 <template>
   <figure>
-    <img :src="poke.sprites.front_default" alt="" />
+    <img :src="poke.sprites?.front_default" alt="" />
   </figure>
 
   <h1>Poke name: {{ $route.params.pokename }}</h1>
