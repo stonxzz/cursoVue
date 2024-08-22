@@ -12,10 +12,16 @@ getData("https://pokeapi.co/api/v2/pokemon");
   <p v-if="loading">Cargando información</p>
   <div class="alert alert-danger mt-3" v-if="error">{{ error }}</div>
   <div v-if="data">
-    <pokemonsList v-for="element in data.results" :key="element" :name="element.name" />
-    <button :disabled="!data.previous" class="btn btn-success mt-2 me-2" @click="getData(data.previous)">
+    <pokemonsList v-for="element in data.results" 
+    :key="element" 
+    :name="element.name" />
+    
+    <div class="mt-2">
+      <button :disabled="!data.previous" class="btn btn-success mt-2 me-2" @click="getData(data.previous)">
       Previous
     </button>
     <button :disabled="!data.next" class="btn btn-primary mt-2" @click="getData(data.next)">Next</button>
+    </div>
+    
   </div>
 </template>
